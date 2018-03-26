@@ -1,6 +1,8 @@
+var side = 100;
+
 function getTriangleCenter() {
     var x = window.innerWidth / 2;
-    var y = window.innerHeight / 2 - 50;
+    var y = window.innerHeight / 2 - (side / 2);
     return {
         x: x,
         y: y
@@ -11,7 +13,7 @@ document.addEventListener('mousemove', function(e) {
     var triangleCenter = getTriangleCenter();
     var angle = Math.atan2(e.clientX - triangleCenter.x, -(e.clientY - triangleCenter.y)) * (180 / Math.PI);
 
-    drawEqTriangle(ctx, 100, canvas.width / 2, canvas.height / 2, angle);
+    drawEqTriangle(ctx, canvas.width / 2, canvas.height / 2, angle);
 });
 
 function inRad(num) {
@@ -21,7 +23,7 @@ function inRad(num) {
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
-function drawEqTriangle(ctx, side, cx, cy, deg) {
+function drawEqTriangle(ctx, cx, cy, deg) {
     var h = side * (Math.sqrt(3) / 2);
 
     ctx.strokeStyle = "black";
@@ -41,4 +43,4 @@ function drawEqTriangle(ctx, side, cx, cy, deg) {
     ctx.restore();
 }
 
-drawEqTriangle(ctx, 100, canvas.width / 2, canvas.height / 2, 0);
+drawEqTriangle(ctx, canvas.width / 2, canvas.height / 2, 0);
