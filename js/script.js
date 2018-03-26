@@ -13,7 +13,7 @@ document.addEventListener('mousemove', function(e) {
     var triangleCenter = getTriangleCenter();
     var angle = Math.atan2(e.clientX - triangleCenter.x, -(e.clientY - triangleCenter.y)) * (180 / Math.PI);
 
-    drawEqTriangle(ctx, canvas.width / 2, canvas.height / 2, angle);
+    drawEqTriangle(canvas.width / 2, canvas.height / 2, angle);
 });
 
 function inRad(num) {
@@ -23,14 +23,14 @@ function inRad(num) {
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
-function drawEqTriangle(ctx, cx, cy, deg) {
+function drawEqTriangle(cx, cy, deg) {
     var h = side * (Math.sqrt(3) / 2);
 
     ctx.strokeStyle = "black";
     ctx.save();
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.translate(cx, cy);
+    ctx.translate(canvas.width / 2, canvas.height / 2);
     ctx.rotate(inRad(deg));
     ctx.beginPath();
     ctx.moveTo(0, -h / 1);
@@ -43,4 +43,4 @@ function drawEqTriangle(ctx, cx, cy, deg) {
     ctx.restore();
 }
 
-drawEqTriangle(ctx, canvas.width / 2, canvas.height / 2, 0);
+drawEqTriangle(0);
