@@ -1,6 +1,6 @@
 function getTriangleCenter() {
     const x = window.innerWidth / 2;
-    const y = window.innerHeight / 2 - (side / 2);
+    const y = window.innerHeight / 2;
     return {
         x: x,
         y: y
@@ -20,6 +20,9 @@ function inRad(num) {
 
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+ctx.canvas.width = window.innerWidth;
+ctx.canvas.height = window.innerHeight;
+
 const side = 100;
 const h = side * (Math.sqrt(3) / 2);
 
